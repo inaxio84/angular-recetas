@@ -1,0 +1,35 @@
+.thumbnail{
+
+    p{
+        font-size:1em;
+        //text-align: left;
+    }
+    .gluten{
+        position: absolute;
+        right:20px;
+        top:0px;
+        max-width: 50px;
+        max-height: 50px;
+        
+    }
+
+    span.label{
+        float:right;
+        margin-top: 5px;
+    }
+
+    span.cocinero{
+        font-weight: 600;
+    }
+
+}//.thumbnail
+
+.ingredientes{
+    h4{
+        text-align:center;
+        font-size: 1.2em;
+        padding:5px 0;
+        border-top:1px solid grey;
+        border-bottom:1px solid grey;
+    }
+}
