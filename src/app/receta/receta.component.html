@@ -11,8 +11,8 @@
             <span class="cocinero">{{cocinero}}</span>
             <span class="label label-primary" (click)="sumarLike()">Likes {{likes}}</span></p>
             <section class="ingredientes">
-          <h4>Ingredientes</h4>
-          <ol>
+          <h4 (click)="showIngredientes()">Ingredientes</h4>
+          <ol *ngIf="show" class="lista">
             <li *ngFor="let ingred of ingredientes">
               {{ingred}}
             </li>
