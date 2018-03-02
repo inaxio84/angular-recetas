@@ -1,0 +1,20 @@
+{{usuario|json}} <!-- para mostrar los atributos del objeto en formato json -->
+
+<div class="row">
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img src="{{usuario.avatar}}" alt="avatar">
+        <div class="caption">
+          <h3>Usuario</h3>
+
+          <ul>
+            <li> <b>id (obligatorio): </b>{{usuario.id}}</li>
+            <li> <b>Nombre (obligatorio): </b>{{usuario.nombre}}</li>
+            <li><b>Apellido (opcional): </b>{{usuario.apellido}}</li>
+            <li><b>email (opcional): </b>{{usuario.email}}</li>
+            <li><b>Sexo (opcional): </b>{{usuario.sexo}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
