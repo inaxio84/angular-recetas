@@ -1,0 +1,40 @@
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Lista de recetas</h3>
+                </div>
+                <div class="panel-body">
+                    <nav aria-label="Lista de recetas">
+                        <ul class="pagination">
+                          <li *ngFor="let receta of recetario | filter : searchText"  [class.active]="receta == r1">
+                            <a (click)="seleccionar($event, receta)">{{receta.nombre}}</a>
+                          </li>    
+                        </ul>
+                    </nav>
+                   
+                </div>
+        </div>
+    </div>   
+
+    <div class="col-md-9">
+        <div class="input-group">
+            <input [(ngModel)]="searchReceta" class="form-control" placeholder="buscar receta" aria-describedby="basic-addon2">
+            <span class="input-group-addon glyphicon glyphicon-search" id="basic-addon2"></span>
+        </div>
+        
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Detalle receta</h3>
+            </div>
+            <div class="panel-body">
+                
+                <!-- llamda componente Hijo -->
+                <app-receta-detalle [r1]="receta"></app-receta-detalle>
+               
+            </div>
+        </div>
+    </div>    
+
+</div>

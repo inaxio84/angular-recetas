@@ -1,0 +1,11 @@
+<input [(ngModel)]="searchText" placeholder="busca coche">
+
+<nav aria-label="Catalogo de Coches">
+    <ul class="pagination">
+  <li *ngFor="let coche of stock | filter : searchText"  [class.active]="coche == c1 || coche==c2">
+      <a (click)="seleccionar($event, coche)">{{coche.marca}} {{coche.modelo}}</a>
+  </li>    
+</ul>
+</nav>
+
+
