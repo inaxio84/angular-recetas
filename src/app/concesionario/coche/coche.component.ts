@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Coche } from '../../model/coche';
 
 
+
 @Component({
   selector: 'app-coche',
   templateUrl: './coche.component.html',

@@ -7,6 +7,8 @@ import {AppRouter} from './app.route';
 
 //Services
 import { CochesService } from './providers/coches.service';
+import { RecetasService } from './providers/recetas.service';
+
 
 import { AppComponent } from './app.component';
 import { RecetaComponent } from './receta/receta.component';
@@ -18,11 +20,16 @@ import { ConcesionarioComponent } from './concesionario/concesionario.component'
 import { CocheComponent } from './concesionario/coche/coche.component';
 import { ListadoComponent } from './concesionario/listado/listado.component';
 import { RecetarioComponent } from './recetario/recetario.component';
+import { DetalleComponent } from './recetario/detalle/detalle.component';
 
 //Pipes
 import { RoundPipe } from './pipes/round.pipe';
-import { FilterPipe } from './pipes/filter.pipe';
-import { RecetaDetalleComponent } from './recetario/receta-detalle/receta-detalle.component';
+import { FilterPipe } from './pipes/filter.pipe'; 
+import { FilterReceta } from './pipes/filterReceta.pipe'; 
+
+
+
+
 
 
 @NgModule({
@@ -38,8 +45,9 @@ import { RecetaDetalleComponent } from './recetario/receta-detalle/receta-detall
     ListadoComponent,
     RoundPipe,
     FilterPipe,
-    RecetaDetalleComponent,
-    RecetarioComponent
+    FilterReceta,
+    RecetarioComponent,
+    DetalleComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +55,8 @@ import { RecetaDetalleComponent } from './recetario/receta-detalle/receta-detall
     FormsModule
   ],
   providers: [
-    CochesService
+    CochesService,
+    RecetasService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,32 @@
+
+.detalle{
+    display:flex;
+    flex-direction: row;
+}
+
+.imagen{
+    position:relative;
+    img{
+        width:250px;
+    }
+
+
+}
+
+.ingredientes{
+    padding-left: 100px;
+}
+
+span.label{
+    float:right;
+    margin-top: 5px;
+}
+
+span.cocinero{
+    font-weight: 600;
+}
+
+.descripcion{
+
+    padding-top:60px;
+}
