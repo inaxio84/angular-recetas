@@ -6,17 +6,28 @@
       </div>
       <div class="panel-body">
         <ul>
-          <li *ngFor="let receta of recetas | filterReceta : searchText" (click)="seleccionarReceta(receta)">{{receta.nombre}}</li>
+          <li *ngFor="let receta of recetas | filterReceta : searchText : glutenFilter" (click)="seleccionarReceta(receta)"> <b>{{receta.nombre}}</b>
+            <img class="gluten" *ngIf="receta.isGlutenFree" src="../../assets/img/gluten_free_icon.png" alt="sin gluten">
+            <img class="gluten" *ngIf="!receta.isGlutenFree" src="../../assets/img/gluten_icon.png" alt="con gluten">
+            <p> <i> {{receta.cocinero}} </i></p>
+          </li>
         </ul>
       </div>
     </div>
   </div>
 
   <div class="col-xs-9">
+
+    <!-- formulario con ventana modal-->
+      <app-formulario></app-formulario>
+
       <div class="input-group">
           <input [(ngModel)]="searchText" class="form-control" placeholder="buscar receta" aria-describedby="basic-addon2">
           <span class="input-group-addon glyphicon glyphicon-search" id="basic-addon2"></span>
       </div>
+      <label for="glutenFilter">Recetas Sin Gluten</label>
+      <input type="checkbox" [(ngModel)]="glutenFilter" name="glutenFilter">
+
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title">Detalle receta {{recetaSelec.nombre}}</h3>

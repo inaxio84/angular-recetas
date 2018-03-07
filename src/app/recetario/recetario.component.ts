@@ -14,9 +14,11 @@ export class RecetarioComponent implements OnInit {
 
   recetas : Receta[]; //Array<Receta>
   recetaSelec : Receta;
+  glutenFilter : boolean;
 
   constructor(private recetasService : RecetasService ) { 
     console.log('RecetarioComponent constructor');
+    this.glutenFilter = false;
   }
 
   ngOnInit() {

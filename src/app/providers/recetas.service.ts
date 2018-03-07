@@ -21,6 +21,7 @@ export class RecetasService {
        receta = new Receta( el.nombre, el.cocinero, el.foto);
        receta.descripcion=el.descripcion;
        receta.likes=el.likes;
+       receta.isGlutenFree=el.isGlutenFree;
        
        el.ingredientes.forEach( ing => {
           receta.addIngrediente(ing);
@@ -32,4 +33,13 @@ export class RecetasService {
     return this.recetas;
   }
 
+/**
+ * Crear Nueva Receta
+ * @param receta:Receta nueva
+ */
+
+ crear(receta:Receta):void{
+   console.log('RecetasService crear %o', receta)
+  this.recetas.unshift(receta);
+ }
 }

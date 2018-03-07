@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule} from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //Nuestro modulo para routing
 import {AppRouter} from './app.route';
@@ -21,11 +21,13 @@ import { CocheComponent } from './concesionario/coche/coche.component';
 import { ListadoComponent } from './concesionario/listado/listado.component';
 import { RecetarioComponent } from './recetario/recetario.component';
 import { DetalleComponent } from './recetario/detalle/detalle.component';
+import { FormularioComponent } from './recetario/formulario/formulario.component'; 
 
 //Pipes
 import { RoundPipe } from './pipes/round.pipe';
 import { FilterPipe } from './pipes/filter.pipe'; 
-import { FilterReceta } from './pipes/filterReceta.pipe'; 
+import { FilterReceta } from './pipes/filterReceta.pipe';
+
 
 
 
@@ -47,12 +49,14 @@ import { FilterReceta } from './pipes/filterReceta.pipe';
     FilterPipe,
     FilterReceta,
     RecetarioComponent,
-    DetalleComponent
+    DetalleComponent,
+    FormularioComponent
   ],
   imports: [
     BrowserModule,
     AppRouter,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     CochesService,

@@ -3,6 +3,8 @@
 
   <div class="imagen">
     <img src="{{receta.foto}}" alt="{{receta.nombre}}">
+    <img class="gluten" *ngIf="receta.isGlutenFree" src="../../../assets/img/gluten_free_icon.png" alt="sin gluten">
+    <img class="gluten" *ngIf="!receta.isGlutenFree" src="../../../assets/img/gluten_icon.png" alt="con gluten">
     <hr>
   </div>
 

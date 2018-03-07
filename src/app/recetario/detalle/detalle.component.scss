@@ -13,8 +13,15 @@
 
 }
 
+.gluten{
+    max-width:50px;
+    position: absolute;
+    top:0;
+    right:0;
+}
+
 .ingredientes{
-    padding-left: 100px;
+    padding-left: 20px;
 }
 
 span.label{
@@ -28,5 +35,5 @@ span.cocinero{
 
 .descripcion{
 
-    padding-top:60px;
+    padding-top:30px;
 }
