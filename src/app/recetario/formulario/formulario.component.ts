@@ -33,7 +33,10 @@ formulario : FormGroup;
     this.formulario=this.fb.group({
       //FormControl(input) => ['value', [Validaciones]]
       nombre : ['',[Validators.required, Validators.minLength(2)] ],
-      cocinero : ''
+      cocinero : ['',[Validators.minLength(5)] ],
+      gluten : ['',[Validators.required] ],
+      foto : ['../../../assets/img/receta_default.jpg',[Validators.required]],
+      descripcion : ['',[Validators.required, Validators.minLength(100)] ]
     });
   }
 
@@ -44,10 +47,16 @@ formulario : FormGroup;
     let nombre=this.formulario.value.nombre;
     let cocinero=this.formulario.value.cocinero;
     let foto=this.formulario.value.foto;
+    let gluten=this.formulario.value.gluten;
+    let descripcion=this.formulario.value.descripcion;
 
 
     let receta=new Receta(nombre,cocinero,foto);
+    receta.isGlutenFree=(gluten=="si")?false:true;
+    receta.descripcion=descripcion;
     this.recetasService.crear(receta);
+
+
 
 
     //TODO cerrar modal
