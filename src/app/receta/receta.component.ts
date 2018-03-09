@@ -18,7 +18,7 @@ export class RecetaComponent implements OnInit {
   constructor() {
     console.log('recetaComponent constructor');
 
-    this.receta =new Receta("Marmitako", undefined, undefined);
+    this.receta =new Receta("Marmitako",undefined,'../../../assets/img/receta_default.jpg');
     this.show=false;
     this.glyphicon="glyphicon-chevron-down";
     this.receta.addIngrediente('patata');

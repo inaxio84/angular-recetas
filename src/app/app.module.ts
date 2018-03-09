@@ -1,3 +1,4 @@
+import {HttpClientModule} from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule} from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -8,7 +9,7 @@ import {AppRouter} from './app.route';
 //Services
 import { CochesService } from './providers/coches.service';
 import { RecetasService } from './providers/recetas.service';
-
+import { TodosService } from './providers/todos.service';
 
 import { AppComponent } from './app.component';
 import { RecetaComponent } from './receta/receta.component';
@@ -22,11 +23,16 @@ import { ListadoComponent } from './concesionario/listado/listado.component';
 import { RecetarioComponent } from './recetario/recetario.component';
 import { DetalleComponent } from './recetario/detalle/detalle.component';
 import { FormularioComponent } from './recetario/formulario/formulario.component'; 
+import { FormularioCochesComponent } from './concesionario/formulario-coches/formulario-coches.component';
+import { TodosComponent } from './todos/todos.component';
 
 //Pipes
 import { RoundPipe } from './pipes/round.pipe';
 import { FilterPipe } from './pipes/filter.pipe'; 
 import { FilterReceta } from './pipes/filterReceta.pipe';
+import { PlantillaComponent } from './plantilla/plantilla.component';
+
+
 
 
 
@@ -50,17 +56,23 @@ import { FilterReceta } from './pipes/filterReceta.pipe';
     FilterReceta,
     RecetarioComponent,
     DetalleComponent,
-    FormularioComponent
+    FormularioComponent,
+    FormularioCochesComponent,
+    PlantillaComponent,
+    TodosComponent
   ],
   imports: [
     BrowserModule,
     AppRouter,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     CochesService,
-    RecetasService
+    RecetasService,
+    HttpClientModule,
+    TodosService
   ],
   bootstrap: [AppComponent]
 })

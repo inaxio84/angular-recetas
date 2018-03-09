@@ -1,5 +1,7 @@
 <div class="row">
   <div class="col-xs-3">
+    <label for="glutenFilter">Recetas Sin Gluten</label>
+    <input type="checkbox" [(ngModel)]="glutenFilter" name="glutenFilter">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">Lista de recetas</h3>
@@ -14,19 +16,18 @@
         </ul>
       </div>
     </div>
+
+    <!-- formulario con ventana modal-->
+    <app-formulario></app-formulario>
   </div>
 
   <div class="col-xs-9">
-
-    <!-- formulario con ventana modal-->
-      <app-formulario></app-formulario>
 
       <div class="input-group">
           <input [(ngModel)]="searchText" class="form-control" placeholder="buscar receta" aria-describedby="basic-addon2">
           <span class="input-group-addon glyphicon glyphicon-search" id="basic-addon2"></span>
       </div>
-      <label for="glutenFilter">Recetas Sin Gluten</label>
-      <input type="checkbox" [(ngModel)]="glutenFilter" name="glutenFilter">
+      
 
       <div class="panel panel-default">
         <div class="panel-heading">

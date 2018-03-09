@@ -1,0 +1,82 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalCoche">
+    Añade tu coche
+  </button>
+
+  
+  <!-- Modal -->
+<div class="modal fade" id="modalCoche" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">Nuevo coche</h4>
+        </div>
+        <div class="modal-body">
+          <p>Valores: {{formulario.value | json}}</p>
+          <p>Estado: {{formulario.status | json}}</p>
+          <hr>
+  
+            <form [formGroup]="formulario" (ngSubmit)="sumitar($event)" novalidate>
+  
+              <div class="row">
+                <div class="col-xs-6">
+                  <div [ngClass]="estilosInput(formulario.controls.marca)">
+                    <label for="marca" class="control-label">Marca:</label>
+                    <input class="form-control" type="text" formControlName="marca" placeholder="Marca">
+                    <p *ngIf="formulario.controls.marca.invalid && formulario.controls.marca.touched" class="text-danger">* Es obligarorio introducir la marca</p>
+                  </div>
+  
+                  <div [ngClass]="estilosInput(formulario.controls.modelo)">
+                    <label for="modelo" class="control-label">Modelo:</label>
+                    <input class="form-control" type="text" formControlName="modelo" placeholder="Modelo">
+                    <p *ngIf="formulario.controls.modelo.invalid && formulario.controls.modelo.touched" class="text-danger">* Es obligarorio introducir el modelo</p>
+                  </div>
+
+                  <div [ngClass]="estilosInput(formulario.controls.version)">
+                      <label for="version" class="control-label">Versión:</label>
+                      <input class="form-control" type="text" formControlName="version" placeholder="Versión">
+                  </div>
+
+                  <div [ngClass]="estilosInput(formulario.controls.puertas)">
+                      <label for="puertas" class="control-label">Puertas:</label>
+                      <input class="form-control" type="text" formControlName="puertas" placeholder="Número de puertas">
+                  </div>
+
+                  <div [ngClass]="estilosInput(formulario.controls.caballos)">
+                      <label for="caballos" class="control-label">Potencia (cv.):</label>
+                      <input class="form-control" type="text" formControlName="caballos" placeholder="Potencia en caballos">
+                  </div>
+
+                  <div [ngClass]="estilosInput(formulario.controls.consumo)">
+                      <label for="consumo" class="control-label">Consumo (l/100):</label>
+                      <input class="form-control" type="text" formControlName="consumo" placeholder="Consumo (l/100)">
+                  </div>
+  
+                </div>
+  
+                <div class="col-xs-6">
+                  <div class="form-group">
+                    <label for="foto">Foto:</label> <br>
+                    <img class="thumb" src="{{formulario.controls.foto.value}}" alt="Imagen del coche">
+                    <input class="urlfoto" type="text" formControlName="foto" placeholder="Foto">
+                    <p *ngIf="formulario.controls.foto.invalid && formulario.controls.foto.touched" class="text-danger">* La url de la imagen es OBLIGATORIA</p>
+                  </div>
+                </div>
+
+              </div>
+
+              <input type="submit" [disabled]="!formulario.valid" class="btn btn-success" value="crear">
+  
+  
+            </form>
+  
+  
+  
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -9,8 +9,10 @@
   </div>
 
   <div class="ingredientes">
-    <h3>Ingredientes:</h3>
-    <p>{{receta.ingredientes}}</p>  
+    <h3>Ingredientes:</h3> 
+    <ul>
+        <li *ngFor="let ingrediente of receta.ingredientes">{{ingrediente}}</li>
+      </ul>
   </div>
 
 </div>

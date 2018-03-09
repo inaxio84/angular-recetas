@@ -1,0 +1,49 @@
+#todos {
+  /* The image used */
+  background-image: url("https://cdn.pixabay.com/photo/2018/03/04/19/49/coffee-3199010_960_720.jpg");
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 80vh;
+  display: flex;
+  section {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    margin: auto;
+    width: 50vw;
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    ul {
+      list-style: none;
+      font-size: 1em;
+      padding-left: 0;
+    }
+    input[type="checkbox"] {
+      transform: scale(1.2);
+      margin-right: 15px;
+    }
+
+  }
+  .nuevo {
+    background-color: transparent;
+    width: 90%;
+  }
+}
+
+.tachado{
+    text-decoration: line-through;
+}
+
+.glyphicon{
+    float:right;
+}
+
+.glyphicon-plus{
+  font-size:1.6em;
+  color:grey;
+  &:hover{text-shadow: 3px 3px 0.6px #474747;}
+
+}

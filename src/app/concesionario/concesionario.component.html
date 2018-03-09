@@ -14,17 +14,20 @@
 
     <div class="col-md-2">
         <div class="panel panel-default">
-                <div class="panel-heading">
+            <div class="panel-heading">
                     <h3 class="panel-title">Catalogo Coches</h3>
-                </div>
-                <div class="panel-body">
+            </div>
+            <div class="panel-body">
                    
-                    <!-- llamda componente Hijo -->
-                    <app-listado [stockParametro]="stock"
-                                 (eventoEmitir)="recibirCoche($event)"></app-listado>
+                <!-- llamda componente Hijo -->
+                <app-listado [stockParametro]="stock"
+                            (eventoEmitir)="recibirCoche($event)"></app-listado>
                    
-                </div>
+            </div>
         </div>
+        
+        <!-- formulario con ventana modal-->
+        <app-formulario-coches></app-formulario-coches>  
     </div>   
 
     <div class="col-md-10">
