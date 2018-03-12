@@ -6,7 +6,7 @@ export class Todo {
 
     constructor(title: string) {
         this.id = -1;
-        this.idUser = -1;
+        this.idUser = 2;
         this.title = title;
         this.completed = false;
     }

@@ -1,17 +1,20 @@
 #todos {
   /* The image used */
-  background-image: url("https://cdn.pixabay.com/photo/2018/03/04/19/49/coffee-3199010_960_720.jpg");
+  background-image: url("../../assets/img/coffee.jpg");
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 80vh;
+  height: 82vh;
   display: flex;
   section {
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.7);
     margin: auto;
     width: 50vw;
+    height: 80vh;
+    overflow: scroll;
+
     h2 {
       text-align: center;
       margin-bottom: 30px;

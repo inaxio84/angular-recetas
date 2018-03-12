@@ -10,6 +10,7 @@ import { Todo } from '../model/todo';
 export class TodosComponent implements OnInit {
 
   todos: Todo[];
+  nuevaTarea: string;
 
   constructor(public todosService: TodosService) {
     console.log('TodosComponent constructor');
@@ -18,6 +19,32 @@ export class TodosComponent implements OnInit {
 
   ngOnInit() {
     console.log('TodosComponent ngOnInit');
+    this.cargarTareas();
+
+  }//ngOnInit
+
+
+  /**
+   * mapea los datos en formato json a todo que proviene del servicio rest
+   * @param resultado 
+   */
+  mapeo(result: any) {
+
+    let todo: Todo;
+    result.forEach(el => {
+      todo = new Todo(el.title);
+      todo.id = el.id;
+      todo.idUser = el.userId;
+      todo.completed = el.completed;
+
+      this.todos.push(todo);
+    }
+    )
+  }
+
+  cargarTareas() {
+    console.log('TodosComponent cargarTareas');
+    this.todos = [];
     this.todosService.getTodos().subscribe(
       resultado => {
         console.debug('peticion correcta %o', resultado);
@@ -27,59 +54,71 @@ export class TodosComponent implements OnInit {
         console.warn('peticion incorrecta %o', error);
       }
     );//subscribe
-  }//ngOnInit
-
-
-  /**
-   * mapea los datos en formato json a todo que proviene del servicio rest
-   * @param resultado 
-   */
-  mapeo(result:any){
-
-    let todo:Todo;
-    result.forEach(el=>{
-       todo=new Todo(el.title);
-       todo.id=el.id;
-       todo.idUser=el.userId;
-       todo.completed=el.completed;
-
-       this.todos.push(todo);
-     }
-    )
   }
 
-  cambiarEstado(todo:Todo){
+  cambiarEstado(todo: Todo) {
 
-    console.log('cambiar completed %o',todo);
-    todo.completed=!todo.completed;
+    console.log('cambiar completed %o', todo);
+    //todo.completed = !todo.completed;
 
-  }
-
-  eliminarTarea(todo:Todo){
-
-    console.log('eliminar %o',todo);
-
-    let id=todo.id;
-
-    this.todos.forEach((element,index) => {
-      if(id===element.id){
-        this.todos.splice(index, 1);
-        return false;//es un break para no recorrer todo el array.
+    this.todosService.patch(todo).subscribe(
+      result=>{
+        console.log('TodosComponent new %o', result);
+        this.cargarTareas();
+      },
+      error=>{
+        alert('No se pudo Crear Nueva Tarea');
+        console.error(error);
       }
-    });
+    );
+  }
+
+  eliminarTarea(todo: Todo) {
+
+    console.log('eliminar %o', todo);
+
+    this.todosService.delete(todo.id).subscribe(
+      result => {
+        this.cargarTareas();
+      },
+      error => {
+        alert('No se pudo elimiar Tarea');
+      }
+
+      /*
+          let id=todo.id;
+          this.todos.forEach((element,index) => {
+            if(id===element.id){
+              this.todos.splice(index, 1);
+              return false;//es un break para no recorrer todo el array.
+            }
+            */
+    );
 
 
 
   }
 
-  addTarea(){
+  addTarea() {
 
-    let todo=new Todo(title);
-
+    let todo = new Todo(this.nuevaTarea);
     console.log('añadir tarea');
+    /*
     this.todos.unshift(todo);
+    */
 
-    
+   this.todosService.post(todo).subscribe(
+    result=>{
+      console.log('TodosComponent new %o', result);
+      this.cargarTareas();
+    },
+    error=>{
+      alert('No se pudo Crear Nueva Tarea');
+      console.error(error);
+    }
+  );
+
+
 
   }
 
