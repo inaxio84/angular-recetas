@@ -11,6 +11,7 @@ import { CochesService } from './providers/coches.service';
 import { RecetasService } from './providers/recetas.service';
 import { TodosService } from './providers/todos.service';
 
+//componentes
 import { AppComponent } from './app.component';
 import { RecetaComponent } from './receta/receta.component';
 import { PropiedadesComponent } from './propiedades/propiedades.component';
@@ -25,12 +26,14 @@ import { DetalleComponent } from './recetario/detalle/detalle.component';
 import { FormularioComponent } from './recetario/formulario/formulario.component'; 
 import { FormularioCochesComponent } from './concesionario/formulario-coches/formulario-coches.component';
 import { TodosComponent } from './todos/todos.component';
+import { PlantillaComponent } from './plantilla/plantilla.component';
 
 //Pipes
 import { RoundPipe } from './pipes/round.pipe';
 import { FilterPipe } from './pipes/filter.pipe'; 
 import { FilterReceta } from './pipes/filterReceta.pipe';
-import { PlantillaComponent } from './plantilla/plantilla.component';
+import { FormBasicoComponent } from './form-basico/form-basico.component';
+
 
 
 
@@ -59,7 +62,8 @@ import { PlantillaComponent } from './plantilla/plantilla.component';
     FormularioComponent,
     FormularioCochesComponent,
     PlantillaComponent,
-    TodosComponent
+    TodosComponent,
+    FormBasicoComponent
   ],
   imports: [
     BrowserModule,

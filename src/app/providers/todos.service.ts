@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Todo } from '../model/todo';
+import { GLOBAL } from '../global';
 
-const END_POINT = "http://localhost:3000";
 
 @Injectable()
 export class TodosService {
@@ -15,20 +15,20 @@ export class TodosService {
 
   getTodos(): Observable<any> {
     //let url = END_POINT + '/todos?userId=2'; //filtra solo para el usuario con id=2
-    let url = END_POINT + '/todos';
+    let url = GLOBAL.endpoint + '/todos';
     console.log(`TodosService getTodos ${url}`);
 
     return this.http.get(url);
   }
 
   delete(id) {
-    let url = END_POINT + '/todos/' + id;
+    let url = GLOBAL.endpoint + '/todos/' + id;
     console.log(`TodosService delete ${url}`);
     return this.http.delete(url);
   }
 
   post(todo: Todo) {
-    let url = END_POINT + '/todos/';
+    let url = GLOBAL.endpoint + '/todos/';
     console.log(`TodosService put ${url}`);
 
     let body = {
@@ -48,7 +48,7 @@ export class TodosService {
   }
 
   patch(todo: Todo) {
-    let url = END_POINT + '/todos/'+todo.id;
+    let url = GLOBAL.endpoint + '/todos/'+todo.id;
     console.log(`TodosService patch ${url}`);
     todo.completed=!todo.completed;
     let body = {
